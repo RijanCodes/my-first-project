@@ -3,13 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comprehensive Guide to Git and GitHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #c0392b;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <h1>My First Git Project</h1>
 
-    <p>Hello, Git!</p>
-    <p>This is an update to my file.</p>
+<div class="container">
+    <h1>A Comprehensive Guide to Git and GitHub</h1>
+
+    <h3>What is Git?</h3>
+    <p>Git is a powerful, free, and open-source <strong>Version Control System (VCS)</strong>. Think of it as a super-powered "save" feature for your projects. Instead of just saving a file, Git saves the entire history of your project, allowing you to:</p>
+    <ul>
+        <li>Go back in time to any previous save point.</li>
+        <li>See exactly what changes were made, when, and by whom.</li>
+        <li>Work on new features without affecting the main project.</li>
+        <li>Collaborate with others on the same project without overwriting each other's work.</li>
+    </ul>
+
+    <h3>What is GitHub?</h3>
+    <p>GitHub is a web-based hosting service for Git repositories. While Git is the tool you use on your computer, GitHub is a website that stores a copy of your Git project in the cloud. It provides a remote backup of your code and a platform for collaboration with other developers.</p>
+
+    <h3>How does it work? The Core Concepts</h3>
+    <p>Git manages your files by tracking them through different states within your project's directory. Here are the key areas:</p>
+    <ol>
+        <li><strong>Working Directory:</strong> This is the project folder on your computer where you create and edit your files (e.g., your <code>my-first-project</code> folder).</li>
+        <li><strong>Staging Area:</strong> This is a temporary holding space where you select the changes you want to include in your next save point. You choose which files to "stage" for the next commit.</li>
+        <li><strong>Local Repository:</strong> This is the hidden <code>.git</code> folder inside your project. It's where Git stores your project's complete history, including all your commits. It's your local copy of the project's history.</li>
+        <li><strong>Remote Repository:</strong> This is the copy of your project stored online on a service like GitHub.</li>
+    </ol>
+    <p>The process is a cycle: you edit files in your <strong>Working Directory</strong>, then you <strong>stage</strong> them to prepare them, then you <strong>commit</strong> them to save a snapshot in your <strong>Local Repository</strong>, and finally, you <strong>push</strong> them to the <strong>Remote Repository</strong> on GitHub.</p>
+
+    <h3>Where can we use it?</h3>
+    <p>Git and GitHub are primarily used in software development for tracking code changes, but their use is much broader. You can use them for:</p>
+    <ul>
+        <li><strong>Solo Projects:</strong> To track your own work and create backups.</li>
+        <li><strong>Team Collaboration:</strong> To work on the same project with multiple people without conflicts.</li>
+        <li><strong>Writing:</strong> To manage versions of a book, a research paper, or any text document.</li>
+        <li><strong>Web Development:</strong> To manage versions of a website.</li>
+        <li><strong>Data Science:</strong> To track changes in data analysis scripts and notebooks.</li>
+    </ul>
+
+    <h3>How to use it? A Step-by-Step Guide</h3>
+    <p>Here is the exact workflow you just completed:</p>
+
+    <h4>Step 1: Set up your local project and initialize Git</h4>
+    <ol>
+        <li><code>mkdir my-first-project</code>: Create a new folder for your project.</li>
+        <li><code>cd my-first-project</code>: Go into the new folder.</li>
+        <li><code>git init</code>: Initialize a new local Git repository. This is a one-time command for a new project.</li>
+        <li><code>code .</code>: Open your project in Visual Studio Code.</li>
+    </ol>
+
+    <h4>Step 2: Save your changes (The Add & Commit Cycle)</h4>
+    <ol>
+        <li><strong>Edit your files</strong> (e.g., create <code>index.html</code>).</li>
+        <li><strong>Check the status:</strong> <code>git status</code> will show your file as "<strong>untracked</strong>" (in red) because Git sees it but isn't watching it yet.</li>
+        <li><strong>Stage your changes:</strong> <code>git add .</code> to move all your changes to the staging area. Now, <code>git status</code> would show the file as <strong>staged</strong> (in green).</li>
+        <li><strong>Commit your staged changes:</strong> <code>git commit -m "Your descriptive message"</code> to create a permanent save point. The message describes the changes you made.</li>
+    </ol>
+
+    <h4>Step 3: Link to GitHub and push your code</h4>
+    <ol>
+        <li><strong>Create a new repository on GitHub</strong> and get its URL.</li>
+        <li><strong>Link your local project to GitHub:</strong> <code>git remote add origin &lt;repository URL&gt;</code>. <code>origin</code> is the nickname for the URL you are adding.</li>
+        <li><strong>Push your local commits to GitHub:</strong> <code>git push -u origin main</code> to upload your history to the <code>main</code> branch on GitHub. The <code>-u</code> flag creates a permanent link between your local <code>main</code> branch and the remote <code>main</code> branch, so you only need to use it the first time.</li>
+        <li><strong>Authenticate:</strong> The browser pop-up <code>Authorize Git Credential Manager</code> is a security step to log you in to your GitHub account. You won't have to do this every time from the same computer.</li>
+    </ol>
+
+    <h3>Key Git Functions and Examples</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Function</th>
+                <th>Example and Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code><strong>git init</strong></code></td>
+                <td>Initializes a new Git repository in the current folder.</td>
+                <td><code>git init</code>: Creates the hidden <code>.git</code> folder.</td>
+            </tr>
+            <tr>
+                <td><code><strong>git status</strong></code></td>
+                <td>Shows the state of your files in the working directory and staging area.</td>
+                <td><code>git status</code>: Shows untracked (red), staged (green), or modified files.</td>
+            </tr>
+            <tr>
+                <td><code><strong>git add</strong></code></td>
+                <td>Moves files to the staging area.</td>
+                <td><code>git add index.html</code>: Stages only <code>index.html</code>.<br><code>git add .</code>: Stages all changes in the current folder.</td>
+            </tr>
+            <tr>
+                <td><code><strong>git commit</strong></code></td>
+                <td>Creates a permanent save point (commit) with the staged changes.</td>
+                <td><code>git commit -m "Add new paragraph..."</code>: Creates a commit with the message "Add new paragraph...".</td>
+            </tr>
+            <tr>
+                <td><code><strong>git remote</strong></code></td>
+                <td>Manages connections to remote repositories. <code>git remote add</code> adds a connection.</td>
+                <td><code>git remote add origin https://...</code>: Adds a remote connection named <code>origin</code>. <br> <code>git remote -v</code>: Lists your connections.</td>
+            </tr>
+            <tr>
+                <td><code><strong>git push</strong></code></td>
+                <td>Uploads your local commits to the remote repository.</td>
+                <td><code>git push -u origin main</code>: Pushes your commits and sets up the link.<br><code>git push</code>: After the first time, you can just use this command.</td>
+            </tr>
+            <tr>
+                <td><code><strong>git commit -m "message"</strong></code></td>
+                <td>This command has two parts: <code>git commit -m</code> is the command itself, and <code>"message"</code> is the descriptive text you provide. It is a permanent part of the history, not just a comment.</td>
+                <td><code>git commit -m "Fix: Corrected typo in navigation bar"</code></td>
+            </tr>
+            <tr>
+                <td><code><strong>The GitHub URL</strong></code></td>
+                <td>The web address of your repository on GitHub.</td>
+                <td><code>https://github.com/RijanCodes/my-first-project.git</code>. This URL includes your username and repository name.</td>
+            </tr>
+            <tr>
+                <td><code><strong>Authentication</strong></code></td>
+                <td>The process of logging into GitHub through your browser to verify your identity when pushing code. This is a one-time setup on a computer.</td>
+                <td>Occurs when you run <code>git push</code> for the first time.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
